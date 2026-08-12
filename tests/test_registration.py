@@ -26,3 +26,5 @@ def test_registration(unique_email, driver):
     driver.find_element(*Locators.REGISTER_BUTTON).click()
     
     element = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.LOGIN_FORM_HEADER)))
+
+    assert element, "После клика на регистрацию на странице заголовок 'Вход' не найден."

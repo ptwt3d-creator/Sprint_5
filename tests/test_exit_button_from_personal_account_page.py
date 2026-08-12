@@ -27,4 +27,6 @@ def test_exit_button_from_personal_account_page(driver):
 
     driver.find_element(*Locators.EXIT_BUTTON).click()
 
-    WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.LOGIN_FORM_HEADER)))
+    element = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.LOGIN_FORM_HEADER)))
+
+    assert element, "После клика на выхода из личного кабинета не обнаружен Заголовок формы входа."

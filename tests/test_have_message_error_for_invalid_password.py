@@ -25,4 +25,6 @@ def test_have_message_error_for_invalid_password(unique_email, driver):
     
     driver.find_element(*Locators.REGISTER_BUTTON).click()
     
-    WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.INVALID_PASSWORD_ERROR)))
+    element = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.INVALID_PASSWORD_ERROR)))
+
+    assert element, "При вводе не корректного пароля в регистрации, не обнаружено сообщение об ошибке."

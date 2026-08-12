@@ -23,4 +23,6 @@ def test_open_personal_account_from_main_page(driver):
     
     driver.find_element(*Locators.PERSONAL_ACCOUNT_BUTTON).click()
     
-    WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.EXIT_BUTTON)))
+    element = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.EXIT_BUTTON)))
+
+    assert element, "Не найдена кнопка Выход после клика на переход в Личный кабинет." 

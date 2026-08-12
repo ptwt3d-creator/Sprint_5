@@ -27,4 +27,6 @@ def test_open_constructor_from_personal_account_page(driver):
     
     driver.find_element(*Locators.LOGO).click()
     
-    WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.SOUS_TAB)))
+    element = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.SOUS_TAB)))
+
+    assert element, "После клика на Конструктор с Личного кабинета не найден раздел Соусы."

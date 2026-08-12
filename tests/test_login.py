@@ -29,7 +29,9 @@ class TestLogin:
         
         driver.find_element(*Locators.LOGIN_BUTTON).click()
         
-        WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.CREATE_ORDER_BUTTON)))
+        element = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.CREATE_ORDER_BUTTON)))
+
+        assert element, "После клика на Вход не найдена кнопка Оформить заказ."
 
     def test_login_with_personal_account_to_main_page(self, driver):
         driver.get(Urls.STELLAR_BURGERS_MAIN)
@@ -44,8 +46,10 @@ class TestLogin:
         
         driver.find_element(*Locators.LOGIN_BUTTON).click()
         
-        WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.CREATE_ORDER_BUTTON)))
-    
+        element = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.CREATE_ORDER_BUTTON)))
+
+        assert element, "После клика на Вход не найдена кнопка Оформить заказ."
+
     def test_login_with_main_page_button_login(self, driver):  
         driver.get(Urls.STELLAR_BURGERS_MAIN)
         
@@ -59,7 +63,9 @@ class TestLogin:
         
         driver.find_element(*Locators.LOGIN_BUTTON).click()
         
-        WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.CREATE_ORDER_BUTTON)))
+        element = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.CREATE_ORDER_BUTTON)))
+
+        assert element, "После клика на Вход не найдена кнопка Оформить заказ."
 
     def test_login_with_button_to_page_password_recovery(self, driver):
         driver.get(Urls.STELLAR_BURGERS_MAIN)
@@ -82,4 +88,6 @@ class TestLogin:
         
         driver.find_element(*Locators.LOGIN_BUTTON).click()
         
-        WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.CREATE_ORDER_BUTTON)))
+        element = WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((Locators.CREATE_ORDER_BUTTON)))
+
+        assert element, "После клика на Вход не найдена кнопка Оформить заказ."
