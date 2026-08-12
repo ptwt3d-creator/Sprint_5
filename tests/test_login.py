@@ -1,4 +1,3 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -7,9 +6,7 @@ import pytest
 
 class TestLogin:
     
-    def test_login_with_button_to_page_registration(self):
-        driver = webdriver.Chrome()
-        
+    def test_login_with_button_to_page_registration(self, driver):
         driver.get("https://stellarburgers.education-services.ru")
         
         driver.find_element(By.XPATH, "//*[text() = 'Личный Кабинет']").click()
@@ -31,12 +28,8 @@ class TestLogin:
         driver.find_element(By.XPATH, "//*[text() = 'Войти']").click()
         
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, "//*[text() = 'Оформить заказ']")))
-        
-        driver.quit()
-    
-    def test_login_with_personal_account_to_main_page(self):
-        driver = webdriver.Chrome()
-        
+
+    def test_login_with_personal_account_to_main_page(self, driver):
         driver.get("https://stellarburgers.education-services.ru")
         
         driver.find_element(By.XPATH, "//*[text() = 'Личный Кабинет']").click()
@@ -50,12 +43,8 @@ class TestLogin:
         driver.find_element(By.XPATH, "//*[text() = 'Войти']").click()
         
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, "//*[text() = 'Оформить заказ']")))
-        
-        driver.quit()
     
-    def test_login_with_main_page_button_login(self):
-        driver = webdriver.Chrome()
-        
+    def test_login_with_main_page_button_login(self, driver):  
         driver.get("https://stellarburgers.education-services.ru")
         
         driver.find_element(By.XPATH, "//*[text() = 'Войти в аккаунт']").click()
@@ -69,12 +58,8 @@ class TestLogin:
         driver.find_element(By.XPATH, "//*[text() = 'Войти']").click()
         
         WebDriverWait(driver, 3).until(expected_conditions.visibility_of_element_located((By.XPATH, "//*[text() = 'Оформить заказ']")))
-        
-        driver.quit()
-    
-    def test_login_with_button_to_page_password_recovery(self):
-        driver = webdriver.Chrome()
-        
+
+    def test_login_with_button_to_page_password_recovery(self, driver):
         driver.get("https://stellarburgers.education-services.ru")
         
         driver.find_element(By.XPATH, "//*[text() = 'Личный Кабинет']").click()
