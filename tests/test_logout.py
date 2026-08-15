@@ -8,7 +8,7 @@ import pytest
 
 class TestLogout:
 
-    def test_exit_button_from_personal_account_page(driver):
+    def test_exit_button_from_personal_account_page(self, driver):
         driver.get(Urls.STELLAR_BURGERS_MAIN)
 
         driver.find_element(*Locators.PERSONAL_ACCOUNT_BUTTON).click()

@@ -7,7 +7,7 @@ import pytest
 
 class TestNavigation:
 
-    def test_open_constructor_from_personal_account_page(driver):    
+    def test_open_constructor_from_personal_account_page(self, driver):    
         driver.get(Urls.STELLAR_BURGERS_MAIN)
         
         driver.find_element(*Locators.PERSONAL_ACCOUNT_BUTTON).click()
@@ -32,7 +32,7 @@ class TestNavigation:
 
         assert element, "После клика на Конструктор с Личного кабинета не найден раздел Соусы."
 
-    def test_open_personal_account_from_main_page(driver):
+    def test_open_personal_account_from_main_page(self, driver):
         driver.get(Urls.STELLAR_BURGERS_MAIN)
         
         driver.find_element(*Locators.PERSONAL_ACCOUNT_BUTTON).click()
